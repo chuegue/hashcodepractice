@@ -12,9 +12,32 @@ Clientes *Init_Clientes(int n_clientes)
 }
 
 Clientes *Add_Cliente(Clientes *clientes, Pessoa *cliente, int index)
-{   
+{
     clientes->clientes[index] = *cliente;
+    free(cliente);
     return clientes;
+}
+
+void Free_Clientes(Clientes *clientes)
+{
+    for (int i = 0; i < clientes->n_clientes; i++)
+    {
+        for (int j = 0; j < clientes->clientes[i].n_likes; j++)
+        {
+            free(clientes->clientes[i].likes[j]);
+            
+        }
+        free(clientes->clientes[i].likes);
+        for (int j = 0; j < clientes->clientes[i].n_dislikes; j++)
+        {
+            free(clientes->clientes[i].dislikes[j]);
+            
+        }
+        free(clientes->clientes[i].dislikes);
+    }
+    free(clientes->clientes);
+    free(clientes);
+    
 }
 
 Pessoa *Init_Pessoa(int nome)

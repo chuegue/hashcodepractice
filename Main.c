@@ -117,6 +117,7 @@ int main(int argc, char *argv[])
             exit(1);
         }
     }
+    Free_Clientes(clientes);
     Free_List(Lista);
     fclose(fp);
     return 0;

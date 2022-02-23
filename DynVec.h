@@ -18,6 +18,7 @@ typedef struct
 
 Clientes *Init_Clientes(int);
 Clientes *Add_Cliente(Clientes *, Pessoa *, int);
+void Free_Clientes(Clientes *);
 Pessoa *Init_Pessoa(int);
 Pessoa *Set_N_Likes(Pessoa *, int);
 Pessoa *Set_N_Dislikes(Pessoa *, int);
